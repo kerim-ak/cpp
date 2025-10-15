@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:11:13 by keak              #+#    #+#             */
-/*   Updated: 2025/10/14 18:10:36 by keak             ###   ########.fr       */
+/*   Updated: 2025/10/15 20:12:45 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,31 @@ void Contact::setPhoneNumber(std::string phoneNumber)
 void Contact::setDarkestSecret(std::string darkestSecret)
 {
 	this->darkestSecret = darkestSecret;
+}
+
+std::string Contact::getFirstName()
+{
+	return (this->firstName);
+}
+
+std::string Contact::getLastName()
+{
+	return (this->lastName);
+}
+
+std::string Contact::getNickname()
+{
+	return (this->nickname);
+}
+
+std::string Contact::getPhoneNumber()
+{
+	return (this->phoneNumber);
+}
+
+std::string Contact::getDarkestSecret()
+{
+	return (this->darkestSecret);
 }
 
 void Contact::displayContact() const

@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:11:15 by keak              #+#    #+#             */
-/*   Updated: 2025/10/14 18:11:50 by keak             ###   ########.fr       */
+/*   Updated: 2025/10/15 20:10:31 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Contact
 {
 	private:
-		int index;
 		std::string firstName;
 		std::string lastName;
 		std::string nickname;
@@ -31,6 +30,11 @@ class Contact
 		void setNickname(std::string nickname);
 		void setPhoneNumber(std::string phoneNumber);
 		void setDarkestSecret(std::string darkestSecret);
+		std::string getFirstName();
+		std::string getLastName();
+		std::string getNickname();
+		std::string getPhoneNumber();
+		std::string getDarkestSecret();
 		void displayContact() const;
 };
 
