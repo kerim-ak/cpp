@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:31:51 by keak              #+#    #+#             */
-/*   Updated: 2025/10/15 20:24:37 by keak             ###   ########.fr       */
+/*   Updated: 2025/10/16 10:50:08 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 void display_contact(Contact &c)
 {
 	unsigned long i = 0;
-	std::cout << "|";
 	if (c.getFirstName().length() <= 10)
 	{
 		while (i < (10 - c.getFirstName().length()))
@@ -27,41 +26,40 @@ void display_contact(Contact &c)
 			std::cout << " ";
 			i++;
 		}
-		std::cout << c.getFirstName();
+		std::cout << c.getFirstName() << "|";
 	}
 	else
 	{
-		std::cout << c.getFirstName().substr(0, 9) << ".";
+		std::cout << c.getFirstName().substr(0, 9) << ".|";
 	}
 	i = 0;
-		if (c.getLastName().length() <= 10)
+	if (c.getLastName().length() <= 10)
 	{
 		while (i < (10 - c.getLastName().length()))
 		{
 			std::cout << " ";
 			i++;
 		}
-		std::cout << c.getLastName();
+		std::cout << c.getLastName() << "|";
 	}
 	else
 	{
-		std::cout << c.getLastName().substr(0, 9) << ".";
+		std::cout << c.getLastName().substr(0, 9) << ".|";
 	}
 	i = 0;
-		if (c.getNickname().length() <= 10)
+	if (c.getNickname().length() <= 10)
 	{
 		while (i < (10 - c.getNickname().length()))
 		{
 			std::cout << " ";
 			i++;
 		}
-		std::cout << c.getNickname();
+		std::cout << c.getNickname() << "|";
 	}
 	else
 	{
-		std::cout << c.getNickname().substr(0, 9) << ".";
+		std::cout << c.getNickname().substr(0, 9) << ".|";
 	}
-	std::cout << "|";
 }
 
 int main(int argc, char **argv)
@@ -84,19 +82,19 @@ int main(int argc, char **argv)
 			phoneBook.addContact(Contact());
 			std::cout << "Enter first name:";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.nextEmptyPlace - 1].setFirstName(input);
+			phoneBook.contactList[phoneBook.currentIndex].setFirstName(input);
 			std::cout << "Enter last name:";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.nextEmptyPlace - 1].setLastName(input);
+			phoneBook.contactList[phoneBook.currentIndex].setLastName(input);
 			std::cout << "Enter nickname:";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.nextEmptyPlace - 1].setNickname(input);
+			phoneBook.contactList[phoneBook.currentIndex].setNickname(input);
 			std::cout << "Enter phone number:";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.nextEmptyPlace - 1].setPhoneNumber(input);
+			phoneBook.contactList[phoneBook.currentIndex].setPhoneNumber(input);
 			std::cout << "Enter darkest secret:";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.nextEmptyPlace - 1].setDarkestSecret(input);
+			phoneBook.contactList[phoneBook.currentIndex].setDarkestSecret(input);
 		}
 		if (input == "SEARCH")
 		{
@@ -105,6 +103,7 @@ int main(int argc, char **argv)
 			int i = 0;
 			while (i < phoneBook.count)
 			{
+				std::cout << "|         " << i + 1 << "|";
 				display_contact(phoneBook.contactList[i]);
 				std::cout << "" << std::endl;
 				i++;
