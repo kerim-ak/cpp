@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:31:51 by keak              #+#    #+#             */
-/*   Updated: 2025/10/16 10:50:08 by keak             ###   ########.fr       */
+/*   Updated: 2025/10/16 18:04:03 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,35 +80,85 @@ int main(int argc, char **argv)
 		if (input == "ADD")
 		{
 			phoneBook.addContact(Contact());
-			std::cout << "Enter first name:";
+			std::cout << "Enter first name: ";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.currentIndex].setFirstName(input);
-			std::cout << "Enter last name:";
+			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setFirstName(input);
+			std::cout << "Enter last name: ";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.currentIndex].setLastName(input);
-			std::cout << "Enter nickname:";
+			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setLastName(input);
+			std::cout << "Enter nickname: ";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.currentIndex].setNickname(input);
-			std::cout << "Enter phone number:";
+			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setNickname(input);
+			std::cout << "Enter phone number: ";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.currentIndex].setPhoneNumber(input);
-			std::cout << "Enter darkest secret:";
+			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setPhoneNumber(input);
+			std::cout << "Enter darkest secret: ";
 			std::getline(std::cin, input);
-			phoneBook.contactList[phoneBook.currentIndex].setDarkestSecret(input);
+			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setDarkestSecret(input);
 		}
 		if (input == "SEARCH")
 		{
 			std::cout << "|-------------------------------------------|" << std::endl;
 			std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
 			int i = 0;
-			while (i < phoneBook.count)
+			while (i < phoneBook.getCount())
 			{
 				std::cout << "|         " << i + 1 << "|";
-				display_contact(phoneBook.contactList[i]);
+				display_contact(phoneBook.getContactFromList(i));
 				std::cout << "" << std::endl;
 				i++;
 			}
 			std::cout << "|-------------------------------------------|" << std::endl;
+			std::cout << "Enter the index of the contact you want to view: ";
+			while (true)
+			{
+				std::getline(std::cin, input);
+				if (input == "1" && phoneBook.getCount() >= 1)
+				{
+					phoneBook.getContactFromList(0).displayContact();
+					break;
+				}
+				else if (input == "2" && phoneBook.getCount() >= 2)
+				{
+					phoneBook.getContactFromList(1).displayContact();
+					break;
+				}
+				else if (input == "3" && phoneBook.getCount() >= 3)
+				{
+					phoneBook.getContactFromList(2).displayContact();
+					break;
+				}
+				else if (input == "4" && phoneBook.getCount() >= 4)
+				{
+					phoneBook.getContactFromList(3).displayContact();
+					break;
+				}
+				else if (input == "5" && phoneBook.getCount() >= 5)
+				{
+					phoneBook.getContactFromList(4).displayContact();
+					break;
+				}
+				else if (input == "6" && phoneBook.getCount() >= 6)
+				{
+					phoneBook.getContactFromList(5).displayContact();
+					break;
+				}
+				else if (input == "7" && phoneBook.getCount() >= 7)
+				{
+					phoneBook.getContactFromList(6).displayContact();
+					break;
+				}
+				else if (input == "8" && phoneBook.getCount() == 8)
+				{
+					phoneBook.getContactFromList(7).displayContact();
+					break;
+				}
+				else
+				{
+					std::cout << "Please enter valid index!" << std::endl;
+				}
+			}
+			
 		}
 		if (input == "EXIT")
 		{

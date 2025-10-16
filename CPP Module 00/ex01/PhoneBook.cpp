@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:11:16 by keak              #+#    #+#             */
-/*   Updated: 2025/10/16 10:49:30 by keak             ###   ########.fr       */
+/*   Updated: 2025/10/16 17:49:53 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,19 @@ void PhoneBook::displayContacts() const
 		this->contactList[i].displayContact();
 		i++;
 	}
+}
+
+Contact& PhoneBook::getContactFromList(int index)
+{
+	return (this->contactList[index]);
+}
+
+int PhoneBook::getCurrentIndex()
+{
+	return (this->currentIndex);
+}
+
+int PhoneBook::getCount()
+{
+	return (this->count);
 }

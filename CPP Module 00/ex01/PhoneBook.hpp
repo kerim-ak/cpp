@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:11:18 by keak              #+#    #+#             */
-/*   Updated: 2025/10/16 10:58:24 by keak             ###   ########.fr       */
+/*   Updated: 2025/10/16 17:50:01 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class PhoneBook
 		PhoneBook();
 		void addContact(const Contact &c);
 		void displayContacts() const;
+		Contact& getContactFromList(int index);
+		int getCurrentIndex();
+		int getCount();
 };
 
 #endif
