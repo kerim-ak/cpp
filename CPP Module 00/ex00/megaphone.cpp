@@ -6,12 +6,12 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:30:54 by keak              #+#    #+#             */
-/*   Updated: 2025/10/14 14:58:31 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/19 18:01:50 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstring>
+#include <cctype>
 
 int main(int argc, char **argv)
 {
@@ -21,19 +21,17 @@ int main(int argc, char **argv)
 	{
 		int i = 1;
 		int j = 0;
-		int str_len = 0;
 		while (i < argc)
 		{
 			j = 0;
-			str_len = (int)strlen(argv[i]);
-			while (j < str_len)
+			while (argv[i][j])
 			{
-				std::cout << (char)toupper(argv[i][j]) << std::flush;
+				std::cout << static_cast<char>(toupper(argv[i][j]));
 				j++;
 			}
 			i++;
 		}
-		std::cout << "" << std::endl;
+		std::cout << std::endl;
 	}
 	return (0);
 }

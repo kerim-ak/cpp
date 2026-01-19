@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:31:51 by keak              #+#    #+#             */
-/*   Updated: 2025/10/16 18:04:03 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/19 18:55:32 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,51 +15,24 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <iomanip>
 
 void display_contact(Contact &c)
 {
-	unsigned long i = 0;
-	if (c.getFirstName().length() <= 10)
-	{
-		while (i < (10 - c.getFirstName().length()))
-		{
-			std::cout << " ";
-			i++;
-		}
-		std::cout << c.getFirstName() << "|";
-	}
-	else
-	{
+	if (c.getFirstName().length() > 10)
 		std::cout << c.getFirstName().substr(0, 9) << ".|";
-	}
-	i = 0;
-	if (c.getLastName().length() <= 10)
-	{
-		while (i < (10 - c.getLastName().length()))
-		{
-			std::cout << " ";
-			i++;
-		}
-		std::cout << c.getLastName() << "|";
-	}
 	else
-	{
+		std::cout << std::setw(10) << c.getFirstName() << "|";
+		
+	if (c.getLastName().length() > 10)
 		std::cout << c.getLastName().substr(0, 9) << ".|";
-	}
-	i = 0;
-	if (c.getNickname().length() <= 10)
-	{
-		while (i < (10 - c.getNickname().length()))
-		{
-			std::cout << " ";
-			i++;
-		}
-		std::cout << c.getNickname() << "|";
-	}
 	else
-	{
+		std::cout << std::setw(10) << c.getLastName() << "|";
+		
+	if (c.getNickname().length() > 10)
 		std::cout << c.getNickname().substr(0, 9) << ".|";
-	}
+	else
+		std::cout << std::setw(10) << c.getNickname() << "|";
 }
 
 int main(int argc, char **argv)
@@ -71,30 +44,59 @@ int main(int argc, char **argv)
 	if (argc != 1)
 	{
 		std::cout << "Incorrect usage! Correct usage: ./Panaphone" << std::endl;
-		std::exit(1);
+		return (1);
 	}
 	while (true)
 	{
 		std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			return (0);
 		if (input == "ADD")
 		{
-			phoneBook.addContact(Contact());
-			std::cout << "Enter first name: ";
-			std::getline(std::cin, input);
-			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setFirstName(input);
-			std::cout << "Enter last name: ";
-			std::getline(std::cin, input);
-			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setLastName(input);
-			std::cout << "Enter nickname: ";
-			std::getline(std::cin, input);
-			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setNickname(input);
-			std::cout << "Enter phone number: ";
-			std::getline(std::cin, input);
-			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setPhoneNumber(input);
-			std::cout << "Enter darkest secret: ";
-			std::getline(std::cin, input);
-			phoneBook.getContactFromList(phoneBook.getCurrentIndex()).setDarkestSecret(input);
+			Contact newContact;
+			
+			input = "";
+			while (!input.length())
+			{
+				std::cout << "Enter first name: ";
+				if (!std::getline(std::cin, input))
+					return (0);
+			}
+			newContact.setFirstName(input);
+			input = "";
+			while (!input.length())
+			{
+				std::cout << "Enter last name: ";
+				if (!std::getline(std::cin, input))
+					return (0);
+			}
+			newContact.setLastName(input);
+			input = "";
+			while (!input.length())
+			{
+				std::cout << "Enter nickname: ";
+				if (!std::getline(std::cin, input))
+					return (0);
+			}
+			newContact.setNickname(input);
+			input = "";
+			while (!input.length())
+			{
+				std::cout << "Enter phone number: ";
+				if (!std::getline(std::cin, input))
+					return (0);
+			}
+			newContact.setPhoneNumber(input);
+			input = "";
+			while (!input.length())
+			{
+				std::cout << "Enter darkest secret: ";
+				if (!std::getline(std::cin, input))
+					return (0);
+			}
+			newContact.setDarkestSecret(input);
+			phoneBook.addContact(newContact);
+			input = "";
 		}
 		if (input == "SEARCH")
 		{
@@ -103,67 +105,30 @@ int main(int argc, char **argv)
 			int i = 0;
 			while (i < phoneBook.getCount())
 			{
-				std::cout << "|         " << i + 1 << "|";
+				std::cout << "|" << std::setw(10) << i + 1 << "|"; 
 				display_contact(phoneBook.getContactFromList(i));
-				std::cout << "" << std::endl;
+				std::cout << std::endl;
 				i++;
 			}
 			std::cout << "|-------------------------------------------|" << std::endl;
 			std::cout << "Enter the index of the contact you want to view: ";
 			while (true)
 			{
-				std::getline(std::cin, input);
-				if (input == "1" && phoneBook.getCount() >= 1)
+				if (!std::getline(std::cin, input))
+					return (0);
+				if (input.length() == 1 && input[0] >= '1' && input[0] <= '8' && input[0] - '0' <= phoneBook.getCount())
 				{
-					phoneBook.getContactFromList(0).displayContact();
-					break;
-				}
-				else if (input == "2" && phoneBook.getCount() >= 2)
-				{
-					phoneBook.getContactFromList(1).displayContact();
-					break;
-				}
-				else if (input == "3" && phoneBook.getCount() >= 3)
-				{
-					phoneBook.getContactFromList(2).displayContact();
-					break;
-				}
-				else if (input == "4" && phoneBook.getCount() >= 4)
-				{
-					phoneBook.getContactFromList(3).displayContact();
-					break;
-				}
-				else if (input == "5" && phoneBook.getCount() >= 5)
-				{
-					phoneBook.getContactFromList(4).displayContact();
-					break;
-				}
-				else if (input == "6" && phoneBook.getCount() >= 6)
-				{
-					phoneBook.getContactFromList(5).displayContact();
-					break;
-				}
-				else if (input == "7" && phoneBook.getCount() >= 7)
-				{
-					phoneBook.getContactFromList(6).displayContact();
-					break;
-				}
-				else if (input == "8" && phoneBook.getCount() == 8)
-				{
-					phoneBook.getContactFromList(7).displayContact();
+					phoneBook.getContactFromList(input[0] - '0' - 1).displayContact();
 					break;
 				}
 				else
-				{
-					std::cout << "Please enter valid index!" << std::endl;
-				}
+					std::cout << "Please enter valid index: ";
 			}
-			
 		}
 		if (input == "EXIT")
 		{
 			std::cout << "BYE!!!" << std::endl;
-			std::exit(0);
+			return (0);
 		}
 	}
 }
