@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:31:51 by keak              #+#    #+#             */
-/*   Updated: 2026/01/19 20:11:45 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/20 16:27:45 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include <iomanip>
 
 void display_contact(Contact &c)
