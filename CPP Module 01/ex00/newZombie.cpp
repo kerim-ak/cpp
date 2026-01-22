@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 17:11:18 by keak              #+#    #+#             */
-/*   Updated: 2026/01/22 15:32:50 by keak             ###   ########.fr       */
+/*   Created: 2026/01/21 00:16:17 by keak              #+#    #+#             */
+/*   Updated: 2026/01/22 18:52:58 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include "Contact.hpp"
-
-class PhoneBook
+Zombie* newZombie(std::string name)
 {
-	private:
-		int count;
-		int nextEmptyPlace;
-		int currentIndex;
-		Contact contactList[8];
-	public:
-		PhoneBook();
-		void addContact(const Contact &c);
-		void displayContacts() const;
-		Contact& getContactFromList(int index);
-		int getCount();
-};
-
-#endif
+	Zombie* zombie = new Zombie(name);
+	return (zombie);
+}
