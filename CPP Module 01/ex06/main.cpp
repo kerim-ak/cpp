@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:10:01 by keak              #+#    #+#             */
-/*   Updated: 2026/01/23 17:55:41 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/23 20:14:45 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Incorrect usage! Correct usage: " << argv[0] << "LEVEL" << std::endl;
+		std::cout << "Incorrect usage! Correct usage: " << argv[0] << " LEVEL" << std::endl;
 		return (1);
 	}
 	Harl harl;
