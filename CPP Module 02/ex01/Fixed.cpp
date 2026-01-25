@@ -6,17 +6,29 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:19:13 by keak              #+#    #+#             */
-/*   Updated: 2026/01/25 15:24:33 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/25 16:03:09 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
+#include <cmath>
 
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->_value = 0;
+}
+
+Fixed::Fixed(const int value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_value = value << this->_frac;
+}
+
+Fixed::Fixed(const float value)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_value = roundf(value * (1 << this->_frac));
 }
 
 Fixed::Fixed(const Fixed& num)
@@ -49,4 +61,20 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
     this->_value = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+	return ((float)this->_value / (float)(1 << this->_frac));
+}
+
+int Fixed::toInt(void) const
+{
+	return (this->_value >> this->_frac);
+}
+
+std::ostream & operator<<(std::ostream & o, Fixed const & i)
+{
+	o << i.toFloat();
+	return (o);
 }
