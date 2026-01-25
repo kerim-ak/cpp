@@ -6,12 +6,12 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:09:59 by keak              #+#    #+#             */
-/*   Updated: 2026/01/23 15:14:48 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/25 23:34:44 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP_
-# define HARL_HPP_
+#ifndef HARL_HPP
+# define HARL_HPP
 
 # include <string>
 

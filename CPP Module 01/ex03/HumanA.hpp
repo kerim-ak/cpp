@@ -6,12 +6,12 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 18:15:22 by keak              #+#    #+#             */
-/*   Updated: 2026/01/23 15:13:16 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/25 23:34:44 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP_
-# define HUMANA_HPP_
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
 #include "Weapon.hpp"
 

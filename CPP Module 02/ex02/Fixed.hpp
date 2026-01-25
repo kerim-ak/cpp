@@ -6,12 +6,12 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:19:15 by keak              #+#    #+#             */
-/*   Updated: 2026/01/25 16:41:35 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/25 23:34:44 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP_
-# define FIXED_HPP_
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 # include <iostream>
 

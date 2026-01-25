@@ -6,12 +6,12 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 20:02:57 by keak              #+#    #+#             */
-/*   Updated: 2026/01/25 22:26:02 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/25 23:34:44 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP_
-# define CLAPTRAP_HPP_
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <string>
 
