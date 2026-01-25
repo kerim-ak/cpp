@@ -3,9 +3,11 @@ CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = \
-	ClapTrap.cpp \
-	ScavTrap.cpp \
-	FragTrap.cpp \
+	Animal.cpp \
+	Cat.cpp \
+	Dog.cpp \
+	WrongAnimal.cpp \
+	WrongCat.cpp \
 	main.cpp
 	
 OBJS = $(SRCS:.cpp=.o)

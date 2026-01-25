@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 23:29:59 by keak              #+#    #+#             */
-/*   Updated: 2026/01/25 23:34:44 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/25 23:42:03 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@
 
 class Dog : public Animal
 {
-	
+	public:
+		Dog();
+		Dog(const Dog& other);
+		Dog& operator=(const Dog& other);
+		~Dog();
+
+		void makeSound() const;
 };
 
 #endif
