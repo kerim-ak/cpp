@@ -6,7 +6,7 @@
 /*   By: keak <keak@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 23:29:58 by keak              #+#    #+#             */
-/*   Updated: 2026/01/27 17:55:09 by keak             ###   ########.fr       */
+/*   Updated: 2026/01/27 17:38:51 by keak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,38 @@
 Dog::Dog()
 {
     this->_type = "Dog";
-    std::cout << "Dog Constructor called" << std::endl;
+    this->_brain = new Brain();
+    std::cout << "Dog constructed with a brain." << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal(other)
+Dog::~Dog()
 {
-    std::cout << "Dog Copy Constructor called" << std::endl;
+    delete (this->_brain);
+    std::cout << "Dog destroyed." << std::endl;
+}
+
+Dog::Dog(const Dog& other) : Animal(other), _brain(NULL)
+{
+    std::cout << "Dog deep copy constructor." << std::endl;
     *this = other;
 }
 
 Dog& Dog::operator=(const Dog& other)
 {
+    std::cout << "Dog assignment operator." << std::endl;
     if (this != &other)
-        Animal::operator=(other);
+    {
+        this->_type = other._type;
+        if (this->_brain)
+            delete (this->_brain);
+        this->_brain = new Brain(*other._brain);
+    }
     return (*this);
 }
 
-Dog::~Dog()
+Brain* Dog::getBrain() const
 {
-    std::cout << "Dog Destructor called" << std::endl;
+    return (this->_brain);
 }
 
 void Dog::makeSound() const
